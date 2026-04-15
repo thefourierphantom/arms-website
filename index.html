@@ -24,6 +24,9 @@
     @keyframes scanline { 0% { top: -2px; opacity: 0.8; } 90% { opacity: 0.8; } 100% { top: 100%; opacity: 0; } }
     @keyframes loaderBar { from { width: 0; } to { width: 100%; } }
     @keyframes floatJet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    @keyframes jetPatrol { 0% { transform: translate(-15vw, 22px) scale(0.85); opacity: 0; } 8% { opacity: 0.85; } 48% { transform: translate(42vw, -14px) scale(1); opacity: 0.95; } 72% { transform: translate(90vw, 6px) scale(0.86); opacity: 0.75; } 100% { transform: translate(112vw, 30px) scale(0.72); opacity: 0; } }
+    @keyframes trainRoll { from { transform: translateX(-42%); } to { transform: translateX(115%); } }
+    @keyframes blinkPanels { 0%, 100% { opacity: 0.32; } 50% { opacity: 0.82; } }
 
     #loader {
       position: fixed; inset: 0; z-index: 9999;
@@ -81,6 +84,29 @@
     .tk-inner { display: flex; animation: tickerMove 35s linear infinite; white-space: nowrap; }
     .tk { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.9); padding: 0 36px; }
     .tk::before { content: '◆ '; opacity: 0.5; }
+
+
+    .anime-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+    .anime-char { position: absolute; bottom: 34px; width: clamp(120px, 12vw, 200px); height: clamp(280px, 38vh, 430px); background: linear-gradient(180deg, rgba(232,234,236,0.2), rgba(232,234,236,0.03)); clip-path: polygon(35% 0, 56% 6%, 70% 20%, 83% 45%, 92% 70%, 78% 100%, 24% 100%, 8% 74%, 18% 46%, 27% 22%); filter: drop-shadow(0 0 20px rgba(204,0,26,0.3)); opacity: 0.35; }
+    .anime-char::after { content: ''; position: absolute; width: 44%; height: 18%; border-radius: 50%; left: 28%; top: 7%; border: 1px solid rgba(232,234,236,0.65); }
+    .anime-char.left { left: 1.8vw; transform: rotate(-2deg); }
+    .anime-char.right { right: 3.3vw; transform: scaleX(-1) rotate(2deg); }
+    .train-track { position: absolute; left: 0; right: 0; bottom: 74px; height: 48px; border-top: 1px solid rgba(136,153,170,0.35); border-bottom: 1px solid rgba(136,153,170,0.15); z-index: 1; overflow: hidden; }
+    .train { position: absolute; display: flex; gap: 4px; top: 8px; left: -35%; animation: trainRoll 26s linear infinite; opacity: 0.56; }
+    .train .car { width: 52px; height: 18px; border: 1px solid rgba(232,234,236,0.42); background: linear-gradient(180deg, rgba(232,234,236,0.1), rgba(232,234,236,0.02)); }
+    .train .car.engine { width: 64px; background: linear-gradient(90deg, rgba(204,0,26,0.45), rgba(204,0,26,0.14)); }
+    .jet-squad { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+    .jet { position: absolute; width: clamp(120px, 13vw, 210px); animation: jetPatrol 17s linear infinite; }
+    .jet path, .jet polygon, .jet ellipse { fill: rgba(232,234,236,0.35); }
+    .jet.j1 { top: 22%; animation-delay: 0s; }
+    .jet.j2 { top: 34%; animation-duration: 20s; animation-delay: 6s; opacity: 0.8; }
+    .jet.j3 { top: 15%; animation-duration: 24s; animation-delay: 11s; opacity: 0.66; }
+    .scene-jump { position: absolute; right: clamp(20px, 5vw, 56px); bottom: clamp(24px, 4vw, 54px); z-index: 4; display: inline-flex; align-items: center; gap: 10px; padding: 11px 22px; border: 1px solid rgba(232,234,236,0.32); background: rgba(5,8,13,0.72); color: var(--white); font-family: var(--fm); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: transform .2s, border-color .2s, background .2s; }
+    .scene-jump:hover { transform: translateY(-2px); border-color: var(--red); background: rgba(14,20,28,0.95); }
+    .scene-jump .arr { color: var(--red); font-size: 13px; }
+    .page-hud { position: fixed; left: 20px; top: 50%; transform: translateY(-50%); z-index: 600; display: grid; gap: 8px; }
+    .page-hud button { width: 11px; height: 11px; border-radius: 50%; border: 1px solid rgba(232,234,236,0.35); background: transparent; cursor: pointer; transition: background .2s, transform .2s, border-color .2s; }
+    .page-hud button.on { background: var(--red); border-color: var(--red); transform: scale(1.15); }
 
     section { position: relative; overflow: hidden; }
     .con { max-width: 1240px; padding: clamp(64px, 10vw, 120px) clamp(28px, 6vw, 100px); }
@@ -183,7 +209,7 @@
     .frt { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gray); letter-spacing: 1px; text-align: right; line-height: 2; }
 
     @media (max-width: 1024px) { .dgrid { grid-template-columns: repeat(3, 1fr); } .tiers { grid-template-columns: repeat(3, 1fr); } .officers { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px) { nav { padding: 14px 20px; } .nlinks { display: none; } .mgrid { grid-template-columns: 1fr; gap: 40px; } .idgrid { grid-template-columns: 1fr; gap: 32px; } .dgrid { grid-template-columns: repeat(2, 1fr); } .tiers { grid-template-columns: repeat(2, 1fr); } .officers { grid-template-columns: repeat(2, 1fr); } .rsub { display: none; } .srow { gap: 24px; } .hjet { display: none; } }
+    @media (max-width: 768px) { nav { padding: 14px 20px; } .nlinks { display: none; } .mgrid { grid-template-columns: 1fr; gap: 40px; } .idgrid { grid-template-columns: 1fr; gap: 32px; } .dgrid { grid-template-columns: repeat(2, 1fr); } .tiers { grid-template-columns: repeat(2, 1fr); } .officers { grid-template-columns: repeat(2, 1fr); } .rsub { display: none; } .srow { gap: 24px; } .hjet, .anime-char, .page-hud { display: none; } }
     @media (max-width: 480px) { .dgrid { grid-template-columns: 1fr; } .tiers { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -206,6 +232,8 @@
     <li><a href="#recruit">Recruit</a></li>
   </ul>
 </nav>
+
+<div class="page-hud" id="pageHud" aria-label="Page quick jump"></div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -250,23 +278,40 @@
   </div>
 
   <div class="hjet">
-    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <g opacity="0.22" fill="#00e67a">
-        <ellipse cx="80" cy="80" rx="7" ry="54"/>
-        <path d="M80,50 L20,100 L80,88 L140,100 Z"/>
-        <path d="M80,120 L55,148 L70,132 Z"/>
-        <path d="M80,120 L105,148 L90,132 Z"/>
-        <path d="M80,56 L55,68 L70,60 Z"/>
-        <path d="M80,56 L105,68 L90,60 Z"/>
-        <ellipse cx="80" cy="95" rx="5" ry="3"/>
-      </g>
-      <circle cx="80" cy="80" r="70" stroke="#cc001a" stroke-width="0.6" opacity="0.3"/>
-      <circle cx="80" cy="80" r="55" stroke="#cc001a" stroke-width="0.4" opacity="0.2" stroke-dasharray="4 8"/>
-      <line x1="80" y1="5" x2="80" y2="25" stroke="#cc001a" stroke-width="0.6" opacity="0.4"/>
-      <line x1="80" y1="135" x2="80" y2="155" stroke="#cc001a" stroke-width="0.6" opacity="0.4"/>
-      <line x1="5" y1="80" x2="25" y2="80" stroke="#cc001a" stroke-width="0.6" opacity="0.4"/>
-      <line x1="135" y1="80" x2="155" y2="80" stroke="#cc001a" stroke-width="0.6" opacity="0.4"/>
+    <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <defs>
+        <linearGradient id="jetBody" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#f0f2f4" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="#8f9baa" stop-opacity="0.35"/>
+        </linearGradient>
+      </defs>
+      <polygon points="121,12 135,62 178,78 140,82 154,120 123,98 92,120 106,82 68,78 111,62" fill="url(#jetBody)" opacity="0.86"/>
+      <ellipse cx="123" cy="72" rx="14" ry="49" fill="url(#jetBody)"/>
+      <ellipse cx="123" cy="57" rx="8" ry="13" fill="#101922" opacity="0.8"/>
+      <polygon points="123,106 95,166 112,156 123,138 134,156 151,166" fill="url(#jetBody)" opacity="0.92"/>
+      <polygon points="65,76 18,90 65,91" fill="#9aa5b2" opacity="0.8"/>
+      <polygon points="181,76 228,90 181,91" fill="#9aa5b2" opacity="0.8"/>
+      <circle cx="123" cy="90" r="80" stroke="#cc001a" stroke-width="0.8" opacity="0.34"/>
+      <circle cx="123" cy="90" r="63" stroke="#cc001a" stroke-width="0.45" opacity="0.24" stroke-dasharray="5 8"/>
     </svg>
+  </div>
+
+
+  <div class="anime-overlay" aria-hidden="true">
+    <div class="anime-char left"></div>
+    <div class="anime-char right"></div>
+  </div>
+
+  <div class="train-track" aria-hidden="true">
+    <div class="train">
+      <div class="car engine"></div><div class="car"></div><div class="car"></div><div class="car"></div><div class="car"></div><div class="car"></div>
+    </div>
+  </div>
+
+  <div class="jet-squad" aria-hidden="true">
+    <svg class="jet j1" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="122" cy="58" rx="10" ry="52"/><polygon points="122,30 42,72 122,62 202,72"/><polygon points="122,82 92,114 106,98"/><polygon points="122,82 152,114 138,98"/><polygon points="122,35 86,46 100,40"/><polygon points="122,35 158,46 144,40"/></svg>
+    <svg class="jet j2" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="122" cy="58" rx="10" ry="52"/><polygon points="122,30 42,72 122,62 202,72"/><polygon points="122,82 92,114 106,98"/><polygon points="122,82 152,114 138,98"/><polygon points="122,35 86,46 100,40"/><polygon points="122,35 158,46 144,40"/></svg>
+    <svg class="jet j3" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="122" cy="58" rx="10" ry="52"/><polygon points="122,30 42,72 122,62 202,72"/><polygon points="122,82 92,114 106,98"/><polygon points="122,82 152,114 138,98"/><polygon points="122,35 86,46 100,40"/><polygon points="122,35 158,46 144,40"/></svg>
   </div>
 
   <div class="hcontent">
@@ -289,6 +334,7 @@
       <span class="tk">APPLIED RESEARCH IN MILITARY SYSTEMS</span><span class="tk">SENSING & ISR</span><span class="tk">COMMUNICATIONS RESILIENCE</span><span class="tk">AUTONOMOUS PLATFORMS</span><span class="tk">EMBEDDED SYSTEMS</span><span class="tk">POWER ARCHITECTURE</span><span class="tk">UNIVERSITY OF SOUTH FLORIDA</span><span class="tk">PROJECTS COME FIRST</span>
     </div>
   </div>
+  <a class="scene-jump" href="#mission" data-next="mission">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <!-- MISSION -->
@@ -313,6 +359,7 @@
       </div>
     </div>
   </div>
+  <a class="scene-jump" href="#domains" data-next="domains">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <div class="stripe">
@@ -401,6 +448,7 @@
       </div>
     </div>
   </div>
+  <a class="scene-jump" href="#doctrine" data-next="doctrine">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <!-- DOCTRINE -->
@@ -418,6 +466,7 @@
       <div class="rule rev"><span class="rnum">07</span><span class="rtext">OPERATE WITHIN INSTITUTIONAL BOUNDS</span><span class="rsub">Safety, legality, and university policy are part of ARMS's identity — not obstacles.</span></div>
     </div>
   </div>
+  <a class="scene-jump" href="#identity" data-next="identity">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <!-- BANNER -->
@@ -457,6 +506,7 @@
       </div>
     </div>
   </div>
+  <a class="scene-jump" href="#structure" data-next="structure">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <div class="stripe">
@@ -489,6 +539,7 @@
       </div>
     </div>
   </div>
+  <a class="scene-jump" href="#recruit" data-next="recruit">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <!-- RECRUIT -->
@@ -532,6 +583,36 @@
   const els = document.querySelectorAll('.rev');
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }), { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   els.forEach(el => io.observe(el));
+
+  const sectionOrder = ['home', 'mission', 'domains', 'doctrine', 'identity', 'structure', 'recruit'];
+  const hud = document.getElementById('pageHud');
+  sectionOrder.forEach((id, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.ariaLabel = `Jump to ${id}`;
+    dot.addEventListener('click', () => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    hud.appendChild(dot);
+  });
+
+  function refreshHud() {
+    const active = sectionOrder.findIndex((id, idx) => {
+      const sec = document.getElementById(id);
+      if (!sec) return false;
+      const r = sec.getBoundingClientRect();
+      return r.top <= window.innerHeight * 0.42 && r.bottom >= window.innerHeight * 0.42;
+    });
+    [...hud.children].forEach((el, idx) => el.classList.toggle('on', idx === active));
+  }
+  refreshHud();
+  window.addEventListener('scroll', refreshHud, { passive: true });
+
+  document.querySelectorAll('.scene-jump').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const target = btn.getAttribute('href');
+      if (target) document.querySelector(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 </script>
 </body>
 </html>
