@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    max-width: 820px;
+    margin: 40px auto;
+    padding: 40px;
+    color: #1a1a1a;
+    line-height: 1.75;
+  }
+  h1 {
+    font-size: 22px;
+    color: #1a3a5c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #1a3a5c;
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 36px;
+  }
+  .phase-header {
+    background: #1a3a5c;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 40px;
+    margin-bottom: 4px;
+  }
+  .phase-sub {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .step-num {
+    min-width: 28px;
+    height: 28px;
+    background: #1a3a5c;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .step-body {
+    flex: 1;
+    background: #f7f9fc;
+    border-left: 3px solid #1a3a5c;
+    padding: 10px 14px;
+    border-radius: 0 4px 4px 0;
+    font-size: 13.5px;
+  }
+  .step-body strong {
+    color: #1a3a5c;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+  }
+  .step-body .why {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+  }
+  .concurrent {
+    border-left: 3px solid #2d7a2d;
+  }
+  .concurrent strong {
+    color: #2d7a2d !important;
+  }
+  .concurrent-label {
+    font-size: 10px;
+    background: #2d7a2d;
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .checkpoint {
+    background: #1a3a5c;
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+  .checkpoint strong {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #adc6e8;
+    margin-bottom: 6px;
+  }
+  .checkpoint ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .checkpoint ul li {
+    margin-bottom: 4px;
+  }
+  .rule-box {
+    background: #fff8e1;
+    border-left: 4px solid #d4a017;
+    padding: 12px 16px;
+    margin: 28px 0;
+    font-size: 13px;
+    border-radius: 0 4px 4px 0;
+  }
+  .rule-box strong {
+    color: #7a5c00;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .conf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 16px 0 24px 0;
+  }
+  .conf-table th {
+    background: #1a3a5c;
+    color: #fff;
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .conf-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e8f0;
+    vertical-align: top;
+  }
+  .conf-table tr:nth-child(even) td {
+    background: #f7f9fc;
+  }
+  .footer {
+    border-top: 1px solid #ddd;
+    margin-top: 50px;
+    padding-top: 14px;
+    font-size: 11px;
+    color: #aaa;
+    text-align: center;
+  }
+  @media print {
+    body { margin: 20px; padding: 20px; }
+    .step { break-inside: avoid; }
+    .checkpoint { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Tactical Intelligence Group</h1>
+<h1 style="border:none;margin-top:-18px;">Tactical Execution Plan</h1>
+<div class="subtitle">Dontavious Ellis &nbsp;|&nbsp; Start: April 15, 2026 &nbsp;|&nbsp; Target Launch: Spring 2027 &nbsp;|&nbsp; Sequential — do this, then this, while running this in parallel</div>
+
+<div class="rule-box">
+  <strong>How to read this document</strong>
+  Steps are numbered sequentially — complete them in order. Steps marked <span class="concurrent-label">CONCURRENT</span> run in parallel with whatever step you're on. Every step has a "why" — that's the output you're extracting, not just the action you're doing.
+</div>
+
+<div class="phase-header">Immediate Next Actions — Complete These First</div>
+<div class="phase-sub">Before anything else in Phase 1. These are the foundation everything else builds on.</div>
+
+<div class="step">
+  <div class="step-num">0A</div>
+  <div class="step-body">
+    <strong>Rename everything from TIG to ARMS throughout this plan and all existing documents</strong>
+    GitHub org, website, any notes or docs already created. The name is locked — ARMS, Applied Research in Military Systems. Consistency from day one prevents identity confusion later.
+    <div class="why">Why: You cannot build brand recognition for two names simultaneously. TIG is dead. ARMS starts now.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">0B</div>
+  <div class="step-body">
+    <strong>Compress your vision into a one-page ARMS mission document</strong>
+    You wrote the raw material already — the three pillars, the project categories, the what-ARMS-is-not list. Now compress it into one clean page that answers four questions: (1) What problem does ARMS solve? (2) What does ARMS specifically do? (3) Who is ARMS for? (4) What makes ARMS different? No marketing language. This is the document you hand to Dean Batson, Isaac, a potential co-founder, or a Honeywell rep. Show it to Dean Batson and Isaac separately and do not finalize it until both say it is clear and credible.
+    <div class="why">Why: Every ARMS conversation starts with this document. If you cannot answer these four questions on one page, the org is not ready to exist.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">0C</div>
+  <div class="step-body">
+    <strong>Scope the first solo project — this is the most overdue action item</strong>
+    This has been pushed multiple times. It cannot be pushed again. The project must hit three criteria: (1) sits at the intersection of your two tracks — power electronics and signals/communications, (2) maps to a real named defense application from the ARMS project categories — sensing, communications, autonomous systems, or power architecture, (3) completable by August 1st working evenings and weekends alongside Orbital. Scope it small enough to finish. Write the scope in one paragraph: what you're building, what defense problem it addresses, what the completion criteria are. Commit it to the ARMS GitHub internal repo the same day.
+    <div class="why">Why: The first project is ARMS's proof of concept. Without it, everything else is conceptual. This is the seed the entire org grows from. It is overdue.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">0D</div>
+  <div class="step-body">
+    <strong>Identify a faculty advisor candidate at USF</strong>
+    One professor in the College of Engineering whose research or teaching overlaps with ARMS's project categories — sensing, RF/comms, autonomous systems, power electronics, or defense systems. They do not need to be a defense expert. They need to understand what ARMS builds and be willing to lend their name and institutional access to the org. Richard Rauscher (Head of Technology, USF) is worth considering given his quantum and technology background. Look at USF ECE faculty research pages and identify two or three candidates before approaching anyone.
+    <div class="why">Why: A faculty advisor unlocks lab space, strengthens SG funding applications, and gives ARMS institutional legitimacy that a student-only org cannot have. You need one before Fall registration.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">0E</div>
+  <div class="step-body">
+    <strong>Design ARMS logo and visual identity</strong>
+    You are already building the website. The logo needs to exist before the site goes live. It should communicate: technical, defense-adjacent, serious, not aggressive. Not a weapon. Not clipart. Think clean, geometric, something that could exist on a defense contractor's badge. Use Figma or similar. Get feedback from at least one person with design sense before finalizing.
+    <div class="why">Why: Visual identity is the first signal ARMS sends before anyone reads a word. A bad logo undermines a strong mission document. A clean logo makes ARMS look like it already exists.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">0F</div>
+  <div class="step-body">
+    <strong>Post ARMS teaser on LinkedIn while Orbital post momentum is high</strong>
+    Your internship post is going viral right now — 1400 impressions, 60+ reactions, 14 comments. That attention window closes within 48-72 hours. A simple teaser post while that momentum is live plants the seed publicly without a full launch announcement. Something like: "While securing this internship, I've been building something at USF. More soon." No details yet. Just enough to create anticipation. The full ARMS announcement comes after the mission document is finalized and the website is live.
+    <div class="why">Why: Momentum is perishable. Your network is paying attention right now. A teaser costs nothing and creates a warm audience for the full ARMS announcement when it comes.</div>
+  </div>
+</div>
+
+<!-- PHASE 1 -->
+<div class="phase-header">Phase 1 — Intelligence & Infrastructure &nbsp;|&nbsp; April 15 – May 17, 2026</div>
+<div class="phase-sub">You are not building yet. You are extracting information that tells you what to build and setting up the infrastructure to document it.</div>
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-body">
+    <strong>Join AFCEA Greater Tampa Bay as a student member</strong>
+    Go to afceagtb.org and register. Student membership is low cost. AFCEA is the Armed Forces Communications and Electronics Association — it is the professional organization that connects defense engineers, military communications professionals, and contractors in Tampa. This is the single most important professional org you are not in yet. TIG's future industry speakers, sponsors, and partners will come from this network before they come from anywhere else. Tampa's AFCEA chapter holds regular events with military and industry professionals you cannot access through IEEE or NSBE.
+    <div class="why">Why: AFCEA Greater Tampa Bay is your local pipeline to defense industry professionals. Every event they run is a TIG networking opportunity and a curriculum research opportunity simultaneously.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-body">
+    <strong>Set up TIG GitHub organization</strong>
+    Create a GitHub organization called "tactical-intelligence-group" or similar. Create one private repository called "tig-internal" — this holds everything: build logs, curriculum drafts, meeting notes, org documents, project documentation. Create one public repository called "tig-projects" — this is where completed project documentation goes once it's polished. The public repo is TIG's proof of work visible to anyone — a defense engineer, a recruiter, a potential member, a sponsor — who looks you up.
+    <div class="why">Why: GitHub is TIG's credibility infrastructure. An org with a clean documented repo of completed defense-relevant projects is fundamentally different from an org that just has a GroupMe. Everything you build gets committed here.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-body">
+    <strong>Set up TIG website — you're already building this</strong>
+    The site needs four things right now and nothing else: (1) what TIG is in one sentence, (2) what TIG builds — project pipeline focus, (3) who TIG is for — USF engineering students pursuing defense contractor roles, (4) a way to get in contact. No blog, no social feed, no events calendar yet. The site is a signal that TIG is real. Keep it sparse and sharp. A half-finished fancy site is worse than a clean minimal one.
+    <div class="why">Why: When you approach Dean Batson, Honeywell, or a potential co-founder, you send them one link. That link needs to communicate that TIG is serious and specific.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">4</div>
+  <div class="step-body">
+    <strong>Create TIG's master notes file — your intelligence log</strong>
+    One running document, digital, always accessible from your phone. Every defense conversation you have, every conference you attend, every term you don't understand, every problem domain you hear repeated — it goes in here with a date. Sections: (1) Vocabulary gaps, (2) Recurring defense engineering problems, (3) Potential industry contacts, (4) Potential TIG members, (5) Project ideas. This document gets fed from ISE, GNSI DC, SOF Week, AFCEA events, and every relevant conversation you have.
+    <div class="why">Why: TIG's curriculum, projects, and industry relationships are all built from patterns in this document. If you don't capture it in real time you lose it. This is your founder's research notebook.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">5</div>
+  <div class="step-body">
+    <strong>ISE Conference extraction — April 14–16 (you're in this now)</strong>
+    For every session you attend: identify the engineering problem underneath the policy language. "We need better communications in denied environments" = RF signals and antenna design problem. "UAV swarms need coordination" = power distribution and embedded systems problem. Write the translation, not the quote. Log into your TIG intelligence file same day. Minimum output: 6-8 defense engineering problem areas documented by April 17.
+    <div class="why">Why: These problem areas become TIG's future workshop topics and project scopes. You are doing founder market research, not attending a conference.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">6</div>
+  <div class="step-body">
+    <strong>Scope TIG's first solo project — Wednesday April 16</strong>
+    This is a dedicated session, not something to squeeze in. The project must hit three criteria: (1) intersection of power electronics and signals/communications — your two tracks, (2) maps to a named real defense application, (3) completable by August 1st working evenings and weekends alongside Orbital. Scope it small enough to finish. Document the scope decision in your TIG intelligence file with the reasoning. A scoped project becomes a build log entry within 48 hours of scoping.
+    <div class="why">Why: This project is TIG's proof of concept. Without it, everything else is conceptual. The scope session is the most important TIG action in April.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">7</div>
+  <div class="step-body concurrent">
+    <strong>Defense vocabulary self-study <span class="concurrent-label">CONCURRENT</span></strong>
+    Running from April 15 through August. Use your TIG intelligence file vocabulary section. For each term you encounter and don't fully own — C2ISR, EW, SIGINT, SATCOM, ISR, EO/IR, A2/AD, JTIDS, Link 16, MIL-STD-1553, IFF, ECCM, EMCON — write two sentences: plain English definition and one concrete engineering problem it represents. Target: 30 terms owned before GNSI DC on May 11. You cannot lead TIG conversations with defense professionals if you go silent when the vocabulary gets specific.
+    <div class="why">Why: Fluency in defense vocabulary is the difference between being taken seriously in these rooms and being treated like a student playing dress-up.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">8</div>
+  <div class="step-body">
+    <strong>Read "Skunk Works" by Ben Rich — April 17 through May 10</strong>
+    Lockheed's Advanced Development Projects division built the U-2, SR-71, and F-117 under extreme secrecy and constraint. This book tells you how defense engineering actually gets done — the relationship between engineers, operators, program managers, and the government customer. It also tells you what happens when scope creep and bureaucracy destroy programs. Every TIG decision you make in the next two years will map to something in this book.
+    <div class="why">Why: You are building an org that serves defense engineers. You need to understand the culture you are serving before you design a program for it.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">9</div>
+  <div class="step-body">
+    <strong>Attend AFCEA Greater Tampa Bay events — ongoing from May</strong>
+    Check afceagtb.org for their event calendar. They run regular luncheons and events with military and industry speakers. Attend as many as your schedule allows starting May. Go with one goal: identify at least one defense engineer (not policy, not executive, not recruiter — engineer) whose work maps to TIG's mission. Introduce yourself as the founder of a defense engineering student org at USF. Have one business card or the TIG website URL ready.
+    <div class="why">Why: AFCEA Greater Tampa Bay is where you find TIG's first industry speaker. That relationship takes multiple touchpoints to build. Start now.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">10</div>
+  <div class="step-body">
+    <strong>GNSI DC Experience — May 11–15: founder extraction mode</strong>
+    Before you arrive: build a one-page reference doc of every confirmed speaker and attendee. Note their background and the one question you'd ask them that connects to TIG. While there: every policy problem you hear gets translated into an engineering problem in your TIG intelligence file that evening. Identify one person who should eventually speak at a TIG event — get their LinkedIn or contact info. The day you return: write your post-DC debrief. One page. What shifted, what problems came up repeatedly, what TIG needs to teach that you didn't know before.
+    <div class="why">Why: DC is the highest-concentration intelligence gathering opportunity you have before TIG launches. The debrief document becomes the intellectual foundation of TIG's curriculum.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">11</div>
+  <div class="step-body">
+    <strong>SOF Week — May 19: industry partner scouting</strong>
+    Walk the exhibitor floor with TIG in mind. Every defense hardware company exhibiting is a potential future TIG partner. Note which ones work on communications, power systems, and electromechanical platforms. Identify one company whose work maps directly to TIG's project pipeline. Follow them on LinkedIn, research their early-career hiring, add them to your TIG intelligence file under "Potential Industry Partners."
+    <div class="why">Why: SOF Week gives you a concentrated view of who is building what in the defense hardware space. Your industry partner list starts here.</div>
+  </div>
+</div>
+
+<div class="checkpoint">
+  <strong>Phase 1 Checkpoint — by May 20</strong>
+  <ul>
+    <li>AFCEA Greater Tampa Bay membership active</li>
+    <li>TIG GitHub organization created with internal and public repos</li>
+    <li>TIG website live — sparse and sharp, not fancy</li>
+    <li>TIG intelligence file active with: 6-8 defense problem areas, 30 vocabulary terms, at least 1 potential industry speaker contact, project scope documented</li>
+    <li>"Skunk Works" finished</li>
+    <li>Post-DC debrief written</li>
+    <li>SOF Week industry partner list: 3-5 companies</li>
+  </ul>
+</div>
+
+<!-- PHASE 2 -->
+<div class="phase-header">Phase 2 — Build & Technical Foundation &nbsp;|&nbsp; May 18 – August 21, 2026</div>
+<div class="phase-sub">Orbital runs your days. TIG gets your evenings and weekends. By August 21 you must have one completed documented project, a curriculum outline, a mission document, and be technically credible enough to lead workshops.</div>
+
+<div class="step">
+  <div class="step-num">12</div>
+  <div class="step-body">
+    <strong>Orbital internship: learn IPC-A-620 by week 3</strong>
+    IPC-A-620 is the workmanship standard for wire harness and cable assembly. It is what Orbital builds to. Go beyond just doing your job — understand why each standard exists and what failure mode it prevents. By week 3 you should be able to explain IPC-A-620 to someone who has never heard of it. This becomes TIG's first workshop topic: "Building to Defense Workmanship Standards." Most engineering students have never heard of this standard. TIG members will know it before their first internship interview.
+    <div class="why">Why: The curriculum you build for TIG comes directly from what you learn at Orbital. IPC-A-620 is the first piece of that curriculum being written in real time.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">13</div>
+  <div class="step-body">
+    <strong>Orbital internship: document one new skill per week without exception</strong>
+    Every week, one entry in your TIG intelligence file under "Curriculum Material": skill name, what it is, why it matters in defense manufacturing, what happens when you get it wrong. Soldering, harness routing, crimping, continuity testing, blueprint reading, pinout verification, quality control process, test procedures. These entries are TIG's workshop curriculum being written by someone with real manufacturing floor experience. Nobody else building a defense engineering student org has this.
+    <div class="why">Why: Your curriculum has to be grounded in what defense contractors actually do. Your weekly documentation IS the curriculum research.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">14</div>
+  <div class="step-body">
+    <strong>Orbital internship: ask Michael Lanham one question by week 4</strong>
+    "What do you wish interns already knew when they walked in the door?" Write down his exact answer word for word. This single answer shapes TIG's entire program more than any textbook or curriculum framework you could design from the outside. If his answer surprises you, that's exactly why you needed to ask it in person.
+    <div class="why">Why: TIG's value proposition is that it prepares students for day one at a defense contractor. The person who runs your production floor tells you what that preparation looks like.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">15</div>
+  <div class="step-body">
+    <strong>Personal defense project: start build log on day one</strong>
+    Every session gets an entry: date, what you worked on, what worked, what didn't, what you learned, next steps. Include photos at every stage. Include schematics. Include test results. This is non-negotiable — the build log IS the project. A build without documentation is a hobby. A documented build is a credential. Commit build log entries to the TIG GitHub private repo after every session.
+    <div class="why">Why: The build log is what you show Dean Batson and potential members when they ask "what has TIG built?" It is also the template every future TIG cohort project follows.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">16</div>
+  <div class="step-body concurrent">
+    <strong>DSP self-study — June <span class="concurrent-label">CONCURRENT</span></strong>
+    MIT OpenCourseWare 6.341 or Oppenheim & Schafer. Target: sampling theory, FIR/IIR filters, FFT implementation. Don't just watch — implement at least three filter designs in Python or MATLAB and commit the code to your GitHub. DSP is the mathematical foundation for any signals-based TIG project and feeds directly into Radar Systems coursework in Fall. Without DSP fundamentals you cannot scope or lead a radar-adjacent TIG project.
+    <div class="why">Why: You cannot teach what you don't know. DSP is the first technical gap between where you are now and where TIG's curriculum needs to go.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">17</div>
+  <div class="step-body concurrent">
+    <strong>Control Systems self-study — July <span class="concurrent-label">CONCURRENT</span></strong>
+    Nise "Control Systems Engineering" — transfer functions, Bode plots, PID control. Work through at least 20 practice problems. Simulate at least two control systems in LTspice or MATLAB Simulink. Control systems is the bridge between your power electronics and electromechanical tracks — it shows up in every defense platform that moves or actuates.
+    <div class="why">Why: Any TIG project involving motors, UAV actuation, or platform control requires control systems fundamentals. This closes the gap between circuit design and system behavior.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">18</div>
+  <div class="step-body concurrent">
+    <strong>RF fundamentals self-study — August <span class="concurrent-label">CONCURRENT</span></strong>
+    Balanis "Antenna Theory" chapters 1-3 or Pozar "Microwave Engineering" chapters 1-2. Transmission lines, impedance matching, antenna fundamentals at conceptual level. This feeds directly into Wireless Circuits coursework and any TIG project involving communications hardware or radar.
+    <div class="why">Why: Track 2 is communications and signals. You need RF foundations before Wireless Circuits and Radar Systems hit in your coursework.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">19</div>
+  <div class="step-body concurrent">
+    <strong>Read "Boyd" by Robert Coram — July <span class="concurrent-label">CONCURRENT</span></strong>
+    John Boyd invented the OODA loop and reshaped how the military thinks about decision-making under uncertainty. His F-15 and F-16 designs came from deep systems thinking about energy maneuverability. This book tells you how engineers change institutions and why most of them fail to.
+    <div class="why">Why: You are building an org that will try to change how USF engineers approach defense careers. Boyd's story is the template for how that kind of change actually happens — and the cost of it.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">20</div>
+  <div class="step-body">
+    <strong>Complete personal defense project — target August 1</strong>
+    This gives you three weeks before Orbital ends to write the final report properly. Final deliverable is an engineering report: (1) Problem Statement — what defense application does this address and why does it matter, (2) Design Approach — what you built and why those design choices, (3) Schematics, (4) Test Results — quantitative where possible, (5) Lessons Learned. Push the polished report to TIG's public GitHub repo. This is TIG's first public proof of concept artifact.
+    <div class="why">Why: This document is what you bring to Dean Batson, Isaac, and eventually industry partners. It proves TIG is not theoretical.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">21</div>
+  <div class="step-body">
+    <strong>Write TIG's one-page mission document — June</strong>
+    Answer four questions on one page: (1) What problem does TIG solve? (2) What does TIG specifically do? (3) Who is TIG for? (4) What makes TIG different from NSBE, IEEE, and every other engineering org at USF? No marketing language. Show it to Dean Batson and Isaac separately. Do not proceed until both say it is clear and credible. Revise until they do.
+    <div class="why">Why: Every conversation about TIG starts with this document. If you cannot answer these four questions in one clear page, the org is not ready to exist.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">22</div>
+  <div class="step-body">
+    <strong>Define TIG's first cohort project — June</strong>
+    Different from your personal project — this one is scoped for a team of 3-5 people with mixed skill levels, completable in one semester. Write it as a one-page project brief: problem statement, deliverables, required skills, component list, estimated cost. The estimated cost feeds directly into your SG funding application in November.
+    <div class="why">Why: When you recruit founding members in August you need to show them exactly what they are signing up to build. A vague project pitch gets vague members.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">23</div>
+  <div class="step-body">
+    <strong>Build TIG's technical curriculum outline — July</strong>
+    Six to eight workshop topics. For each: title, one-paragraph description, defense application it maps to, materials needed, estimated time to run. Minimum topics: reading defense schematics and pinouts, cable harness assembly to IPC-A-620, power regulation for defense platforms, RF signal fundamentals, LTspice simulation for defense circuit validation, MIL-SPEC standards overview. Source the content directly from your Orbital documentation and self-study materials. This curriculum is TIG's product.
+    <div class="why">Why: The curriculum is what differentiates TIG from every other engineering org. If your workshops look like IEEE workshops, TIG has no reason to exist.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">24</div>
+  <div class="step-body">
+    <strong>Draft TIG's constitution and bylaws — July</strong>
+    Use NSBE and IEEE USF docs as structural templates. Keep it lean: org purpose, officer roles (President and Treasurer minimum for USF registration), membership requirements, decision-making process. This document exists to satisfy USF registration and to formalize that TIG is not a one-person operation.
+    <div class="why">Why: You cannot register without this. Don't over-engineer it — a lean constitution for a new org is better than a complex one you can't execute.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">25</div>
+  <div class="step-body">
+    <strong>Identify founding member candidates — August</strong>
+    3-5 people from NSBE, IEEE, DFX Lab, Orbital network, or classmates. Three criteria: (1) defense-aligned or genuinely open to it, (2) technically serious — they build things, (3) no mission creep risk. Do not ask anyone yet. Just identify them and note why each makes the list. This is your candidate pool going into Fall recruitment.
+    <div class="why">Why: Recruiting the wrong founding members is how SCOPE happened. Identify before you ask. The candidate list forces you to be deliberate instead of just grabbing whoever is available.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">26</div>
+  <div class="step-body">
+    <strong>Identify your co-founder — August</strong>
+    From your candidate list, one person. Before you ask them, apply the test: "What's the difference between a buck converter and a boost converter and why does it matter for a UAV power system?" If they cannot engage at that level, they are a member, not a co-founder. Technical credibility is non-negotiable. You need someone who can run TIG in your absence and who will not pull it in the wrong direction.
+    <div class="why">Why: The co-founder is the single highest-stakes TIG decision you make. Everything about SCOPE that went wrong traces back to this step. Do not rush it.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">27</div>
+  <div class="step-body">
+    <strong>Meet with Dean Batson — August, before semester starts</strong>
+    Come with three things: completed project engineering report, TIG one-page mission document, Fall 2026 launch plan. Ask for: (1) his endorsement, (2) advice on faculty advisor candidates. Faculty advisor strengthens SG funding application and gives TIG institutional legitimacy. This meeting is not a pitch — it is a status update from someone he's already invested in.
+    <div class="why">Why: Dean Batson's endorsement opens doors that a student org application alone cannot. He already knows you. Use that.</div>
+  </div>
+</div>
+
+<div class="checkpoint">
+  <strong>Phase 2 Checkpoint — by August 21</strong>
+  <ul>
+    <li>Personal defense project completed, documented, pushed to public GitHub repo</li>
+    <li>IPC-A-620 learned and documented as first curriculum entry</li>
+    <li>Weekly skill documentation: 14 entries minimum (one per week at Orbital)</li>
+    <li>Michael Lanham's answer to "what do you wish interns knew" written down verbatim</li>
+    <li>DSP, Control Systems, RF fundamentals self-study completed</li>
+    <li>"Skunk Works" and "Boyd" both finished</li>
+    <li>TIG mission document finalized</li>
+    <li>First cohort project brief written</li>
+    <li>Technical curriculum outline: 6-8 topics documented</li>
+    <li>Constitution draft complete</li>
+    <li>Founding member candidate list with co-founder identified</li>
+    <li>Dean Batson meeting completed</li>
+    <li>AFCEA Greater Tampa Bay: at least 3 events attended, 1 industry engineer contact in TIG intelligence file</li>
+  </ul>
+</div>
+
+<!-- CONFERENCES TABLE -->
+<div class="phase-header">Conference & Event Calendar — Florida Priority, National Secondary</div>
+<div class="phase-sub">Attend with TIG intelligence file open. Every event is curriculum research and industry partner scouting simultaneously.</div>
+
+<table class="conf-table">
+  <tr>
+    <th>Event</th>
+    <th>When</th>
+    <th>Where</th>
+    <th>Why It Matters for TIG</th>
+  </tr>
+  <tr>
+    <td><strong>AFCEA Greater Tampa Bay — monthly events</strong></td>
+    <td>Ongoing, monthly</td>
+    <td>Tampa, FL</td>
+    <td>Primary local pipeline to defense engineers and contractors. First industry speaker likely comes from here.</td>
+  </tr>
+  <tr>
+    <td><strong>IEEE WAMICON 2026</strong> (Wireless & Microwave Tech)</td>
+    <td>April 20–21, 2026</td>
+    <td>Clearwater, FL</td>
+    <td>Direct Track 2 relevance — RF, microwave, wireless systems. Meet engineers working in the exact signal domain TIG projects will touch.</td>
+  </tr>
+  <tr>
+    <td><strong>IEEE IFCS 2026</strong> (International Frequency Control Symposium)</td>
+    <td>May 10–13, 2026</td>
+    <td>Tampa, FL</td>
+    <td>Frequency control and timing technology — critical for radar, communications, and navigation systems. In Tampa, low barrier to attend.</td>
+  </tr>
+  <tr>
+    <td><strong>SOF Week</strong></td>
+    <td>May 19, 2026</td>
+    <td>Tampa Convention Center</td>
+    <td>Defense hardware exhibitors across special operations supply chain. Industry partner scouting. Already attending.</td>
+  </tr>
+  <tr>
+    <td><strong>Sun 'n Fun Aerospace Expo</strong></td>
+    <td>April annually, Lakeland FL</td>
+    <td>Lakeland, FL</td>
+    <td>Honeywell Aerospace presence, aviation hardware community. Already volunteering. Annual relationship building opportunity with NSBE sponsor.</td>
+  </tr>
+  <tr>
+    <td><strong>I/ITSEC 2026</strong> (Interservice/Industry Training, Simulation & Education)</td>
+    <td>November 30 – December 4, 2026</td>
+    <td>Orlando, FL</td>
+    <td>Largest modeling and simulation defense conference in the world. Electronics, sensors, embedded systems. Student registration available. Orlando is 1 hour from Tampa.</td>
+  </tr>
+  <tr>
+    <td><strong>Spacepower Conference 2026</strong></td>
+    <td>December 8–10, 2026</td>
+    <td>Orlando, FL</td>
+    <td>Space domain, defense electronics, communications. Signals and power systems for space platforms maps directly to Track 2+3.</td>
+  </tr>
+  <tr>
+    <td><strong>IEEE EESAT 2027</strong> (Electrical Energy Storage Applications & Technologies)</td>
+    <td>January 11–12, 2027</td>
+    <td>Tampa, FL</td>
+    <td>Power systems and energy storage — direct Track 3 relevance. In Tampa. Attend and present if you have project work to show by then.</td>
+  </tr>
+  <tr>
+    <td><strong>AIAA Digital Avionics Systems Conference 2027</strong></td>
+    <td>March 6–13, 2027</td>
+    <td>Orlando, FL</td>
+    <td>Avionics systems, embedded electronics, defense platforms. Direct overlap with TIG project scope. Attend as TIG is launching.</td>
+  </tr>
+  <tr>
+    <td><strong>AUSA Annual Meeting</strong></td>
+    <td>October annually</td>
+    <td>Washington, DC</td>
+    <td>Association of the United States Army — largest defense industry conference in the US. Target for Fall 2027 when you have TIG established and are recruiting industry partners.</td>
+  </tr>
+  <tr>
+    <td><strong>NSBE National Convention</strong></td>
+    <td>March annually</td>
+    <td>Rotating US cities</td>
+    <td>Largest gathering of Black engineers. L3Harris, Raytheon, Northrop all recruit heavily here. As Tech Dev Chair and TIG founder, your presence here is strategic for both orgs.</td>
+  </tr>
+</table>
+
+<!-- PHASE 3 -->
+<div class="phase-header">Phase 3 — Registration & First Cohort &nbsp;|&nbsp; Fall 2026</div>
+<div class="phase-sub">TIG goes from concept to registered organization. You recruit, build, fund, and demo — in that order.</div>
+
+<div class="step">
+  <div class="step-num">28</div>
+  <div class="step-body">
+    <strong>Register TIG through USF student org system — Fall 2026 window</strong>
+    Co-founder confirmed as treasurer before you submit. Required documents: constitution, officer list, faculty advisor if secured. This step cannot happen without steps 24, 25, and 26 being complete. Registration gives you USF recognition, SG funding eligibility, and room reservation access. Do not register until the org is ready — a registered org that goes dormant is worse than an unregistered one that's still building.
+    <div class="why">Why: USF registration is the official starting gun. Everything before this was infrastructure. Everything after this is execution.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">29</div>
+  <div class="step-body">
+    <strong>Recruit founding cohort — individual conversations, not mass pitch</strong>
+    Use your candidate list from step 25. Have one-on-one conversations with each person. Show them: the completed project report, the cohort project brief, the curriculum outline. Be explicit about the time commitment and technical bar. You want 3-5 people who understand what they are agreeing to — not 10 people who showed up to a general interest meeting.
+    <div class="why">Why: Founding cohort quality determines everything that follows. Three serious members who execute are worth more than fifteen members who dilute the culture.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">30</div>
+  <div class="step-body">
+    <strong>First TIG meeting: present your summer project</strong>
+    Your personal project is the first thing founding members see. Walk through the engineering report. Show the build log. Show the GitHub commits. This is not a pitch — it is a demonstration of the standard TIG sets for itself. If your project isn't finished or polished, delay this meeting. Do not lower the bar on day one.
+    <div class="why">Why: Founding culture is set in the first meeting. If the standard on day one is rigorous documentation and real engineering, that becomes TIG's DNA.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">31</div>
+  <div class="step-body">
+    <strong>Kick off first cohort project — immediately after founding meeting</strong>
+    Use the brief from step 22. Assign roles based on each member's strengths. Set a weekly 30-minute check-in — same time every week, no exceptions. Every session gets a build log entry committed to GitHub by whoever is leading that session. The process discipline established here becomes TIG's permanent operating standard.
+    <div class="why">Why: The first cohort project is TIG's second proof of concept — this time built by a team, not just by you. It is the thing you present at Engineering Expo Spring 2027.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">32</div>
+  <div class="step-body">
+    <strong>Reach out to Honeywell for first industry speaker — October</strong>
+    You have a relationship from SNF volunteering. Your ask is specific and low-friction: one engineer (not executive, not recruiter — engineer) to speak at one TIG workshop about what defense hardware work looks like day to day. Give them a date, a time, and a one-sentence description of TIG's audience. Make it easy to say yes. Once Honeywell says yes, every subsequent industry outreach starts with "we already have Honeywell."
+    <div class="why">Why: First industry partner on record changes every future conversation. It proves TIG is real to sponsors, members, and USF administration.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">33</div>
+  <div class="step-body">
+    <strong>Formally reach out to UCF NSBE — Matthew Pinnock and Woodley Joseph — October</strong>
+    Now that TIG is registered, send a specific proposal: one joint technical workshop between USF TIG and UCF in Spring 2027. Give them a topic, a format, and a proposed timeline. The UCF defense corridor — L3Harris, Lockheed, Raytheon all have significant Orlando presence — is TIG's first regional industry geography. This collaboration is how TIG eventually becomes multi-campus.
+    <div class="why">Why: A single-campus org is limited. A multi-campus org with a defense corridor presence is a real pipeline. UCF is the first node.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">34</div>
+  <div class="step-body">
+    <strong>SG funding application — apply the day the window opens in November</strong>
+    Request $500–$1000. Your application exhibit: (1) proof TIG is registered and active — meeting minutes, GitHub commit history, (2) itemized component budget for cohort project, (3) your personal project engineering report as credibility anchor. Specificity wins funding. A one-line project description loses.
+    <div class="why">Why: SG funding pays for the components that make the cohort project possible. Without it you are asking founding members to self-fund, which kills momentum.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">35</div>
+  <div class="step-body">
+    <strong>Attend I/ITSEC — November 30 – December 4, Orlando</strong>
+    Largest modeling, simulation, and training defense conference in the world. Student registration is available. Go with your TIG intelligence file. Target: identify two defense hardware engineers or program managers whose work maps to TIG's curriculum. Add them to your industry contact list. I/ITSEC runs annually — this is a recurring intelligence and networking event for TIG leadership.
+    <div class="why">Why: I/ITSEC is where defense industry people you cannot reach through Tampa events are concentrated in one place one hour from you.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">36</div>
+  <div class="step-body">
+    <strong>Complete first cohort project and run demo day — December</strong>
+    Small, intentional. Invite Dean Batson, Isaac, your Honeywell contact, and anyone else who has been part of building TIG. Present it the way you would present to a defense contractor — technical rigor, clear documentation, honest assessment of what worked and what didn't. Push final documentation to TIG public GitHub repo.
+    <div class="why">Why: The demo day is TIG's public declaration that it exists and produces real work. Everything before this was internal. This is the first external signal.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">37</div>
+  <div class="step-body">
+    <strong>Write TIG's first annual report — December</strong>
+    What TIG built, who was involved, what the curriculum covered, what's planned for Spring 2027. One clean document. This becomes the pitch for industry sponsorship, additional SG funding, and USF College of Engineering recognition. Every future TIG conversation starts here.
+    <div class="why">Why: An org with an annual report is an org that takes itself seriously. This document is evidence that TIG has institutional memory, not just a GroupMe.</div>
+  </div>
+</div>
+
+<div class="checkpoint">
+  <strong>Phase 3 Checkpoint — by December 2026</strong>
+  <ul>
+    <li>TIG registered with USF, co-founder and treasurer confirmed</li>
+    <li>Founding cohort: 3-5 members, all vetted individually</li>
+    <li>First cohort project completed and on public GitHub</li>
+    <li>SG funding application submitted</li>
+    <li>Honeywell industry speaker confirmed</li>
+    <li>UCF collaboration proposal sent and in progress</li>
+    <li>I/ITSEC attended: 2 new industry contacts in TIG intelligence file</li>
+    <li>Annual report written</li>
+  </ul>
+</div>
+
+<!-- PHASE 4 -->
+<div class="phase-header">Phase 4 — Launch & Scale &nbsp;|&nbsp; Spring 2027</div>
+<div class="phase-sub">TIG goes public. Second cohort, first industry event, UCF joint workshop, Engineering Expo. By May 2027 TIG runs without requiring your daily involvement.</div>
+
+<div class="step">
+  <div class="step-num">38</div>
+  <div class="step-body">
+    <strong>Apply for USF College of Engineering recognition — January 2027</strong>
+    Your annual report and completed cohort project are your exhibits. Engineering recognition unlocks: lab space access, faculty advisor formalization, additional funding channels beyond SG, and credibility with external sponsors.
+    <div class="why">Why: College-level recognition is the institutional legitimacy that makes Raytheon and L3Harris take a sponsorship conversation seriously.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">39</div>
+  <div class="step-body">
+    <strong>Open TIG recruitment — first general interest meeting, January 2027</strong>
+    Present: what TIG is, what it has built (show the GitHub), what the second cohort project is, what the time and technical commitment looks like. Target 8–12 members maximum. Be willing to say no. The technical bar does not drop because you want more members.
+    <div class="why">Why: After a semester of completed work you have something real to show. Recruitment backed by evidence produces better members than recruitment backed by a pitch deck.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">40</div>
+  <div class="step-body">
+    <strong>Host first TIG industry speaker event — February 2027</strong>
+    One defense hardware engineer. Not an executive, not a recruiter. Someone who builds things. Ask them to talk about one specific technical problem they've solved and what it took. Open to all USF engineering students, not just TIG members. This is TIG's first public event and it should look nothing like an IEEE speaker night.
+    <div class="why">Why: One engineer talking honestly about a real problem is more valuable to your members than ten panels of executives talking strategy. This sets TIG's event culture from day one.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">41</div>
+  <div class="step-body">
+    <strong>UCF joint workshop — execute it, February or March 2027</strong>
+    The collaboration you proposed in step 33, now executed. One technical topic, students from both campuses building or learning together. Document it. Photograph it. Publish it to TIG's public GitHub and website.
+    <div class="why">Why: Multi-campus proof of concept. This is what you show L3Harris when you ask for a real industry partnership — TIG reaches across the Florida defense engineering student population, not just USF.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">42</div>
+  <div class="step-body">
+    <strong>Present at Engineering Expo Spring 2027</strong>
+    Present the first cohort project publicly. K-12 students, USF faculty, and defense company recruiters all in the same room. This is TIG's coming out moment. Treat it as a professional presentation, not a student project show.
+    <div class="why">Why: Public visibility with defense recruiters in attendance. The students who see TIG at Engineering Expo become next year's founding applications.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">43</div>
+  <div class="step-body">
+    <strong>Identify your successor — April 2027</strong>
+    By April 2027 there should be one TIG member who understands the mission deeply enough to lead the org after you. You should be actively teaching them everything you know about running TIG — not just the operations, but the philosophy. Start this process in February, not April.
+    <div class="why">Why: An org that depends entirely on one person is not an org. It is a project. TIG survives you graduating or the whole thing was wasted.</div>
+  </div>
+</div>
+
+<div class="checkpoint">
+  <strong>Phase 4 Checkpoint — by May 2027</strong>
+  <ul>
+    <li>College of Engineering recognition secured</li>
+    <li>Second cohort running with 8-12 members</li>
+    <li>First industry speaker event executed and documented</li>
+    <li>UCF joint workshop executed</li>
+    <li>Engineering Expo presentation completed</li>
+    <li>Successor identified and being groomed</li>
+    <li>First industry sponsorship conversation in progress</li>
+    <li>TIG operating without requiring your daily involvement</li>
+  </ul>
+</div>
+
+<div class="rule-box">
+  <strong>The Three Rules — Non-Negotiable</strong>
+  (1) Co-founder test: "What's the difference between a buck converter and a boost converter and why does it matter for a UAV power system?" No technical engagement = member, not co-founder. (2) Scope filter: Does this make TIG members more competitive for defense contractor roles? If not, it doesn't belong. (3) Documentation standard: An undocumented build is a hobby. A documented build is a credential. No exceptions.
+</div>
+
+<div class="footer">
+  Tactical Intelligence Group &nbsp;|&nbsp; Dontavious Ellis &nbsp;|&nbsp; USF Electrical Engineering &nbsp;|&nbsp; April 2026
+</div>
+
+</body>
+</html>
