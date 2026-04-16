@@ -24,8 +24,9 @@
     @keyframes scanline { 0% { top: -2px; opacity: 0.8; } 90% { opacity: 0.8; } 100% { top: 100%; opacity: 0; } }
     @keyframes loaderBar { from { width: 0; } to { width: 100%; } }
     @keyframes floatJet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-    @keyframes heroDrift { 0%,100% { transform: scale(1) translate3d(0,0,0); } 50% { transform: scale(1.04) translate3d(-1.2%, -0.7%, 0); } }
-    @keyframes smokePulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.52; } }
+    @keyframes jetPatrol { 0% { transform: translate(-15vw, 22px) scale(0.85); opacity: 0; } 8% { opacity: 0.85; } 48% { transform: translate(42vw, -14px) scale(1); opacity: 0.95; } 72% { transform: translate(90vw, 6px) scale(0.86); opacity: 0.75; } 100% { transform: translate(112vw, 30px) scale(0.72); opacity: 0; } }
+    @keyframes trainRoll { from { transform: translateX(-42%); } to { transform: translateX(115%); } }
+    @keyframes blinkPanels { 0%, 100% { opacity: 0.32; } 50% { opacity: 0.82; } }
 
     #loader {
       position: fixed; inset: 0; z-index: 9999;
@@ -85,10 +86,21 @@
     .tk::before { content: '◆ '; opacity: 0.5; }
 
 
-    .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-    .hero-bg svg { width: 100%; height: 100%; object-fit: cover; animation: heroDrift 28s ease-in-out infinite; transform-origin: center; }
-    .hero-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 52% 48%, transparent 0%, rgba(5,8,13,0.16) 50%, rgba(5,8,13,0.86) 100%); z-index: 1; pointer-events: none; }
-    .hero-smoke { position: absolute; inset: 0; background: radial-gradient(circle at 30% 76%, rgba(200,206,214,0.22) 0%, transparent 28%), radial-gradient(circle at 58% 86%, rgba(182,186,192,0.2) 0%, transparent 29%), radial-gradient(circle at 78% 74%, rgba(224,170,120,0.2) 0%, transparent 24%); mix-blend-mode: screen; animation: smokePulse 9s ease-in-out infinite; z-index: 1; pointer-events: none; }
+    .anime-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+    .anime-char { position: absolute; bottom: 34px; width: clamp(120px, 12vw, 200px); height: clamp(280px, 38vh, 430px); background: linear-gradient(180deg, rgba(232,234,236,0.2), rgba(232,234,236,0.03)); clip-path: polygon(35% 0, 56% 6%, 70% 20%, 83% 45%, 92% 70%, 78% 100%, 24% 100%, 8% 74%, 18% 46%, 27% 22%); filter: drop-shadow(0 0 20px rgba(204,0,26,0.3)); opacity: 0.35; }
+    .anime-char::after { content: ''; position: absolute; width: 44%; height: 18%; border-radius: 50%; left: 28%; top: 7%; border: 1px solid rgba(232,234,236,0.65); }
+    .anime-char.left { left: 1.8vw; transform: rotate(-2deg); }
+    .anime-char.right { right: 3.3vw; transform: scaleX(-1) rotate(2deg); }
+    .train-track { position: absolute; left: 0; right: 0; bottom: 74px; height: 48px; border-top: 1px solid rgba(136,153,170,0.35); border-bottom: 1px solid rgba(136,153,170,0.15); z-index: 1; overflow: hidden; }
+    .train { position: absolute; display: flex; gap: 4px; top: 8px; left: -35%; animation: trainRoll 26s linear infinite; opacity: 0.56; }
+    .train .car { width: 52px; height: 18px; border: 1px solid rgba(232,234,236,0.42); background: linear-gradient(180deg, rgba(232,234,236,0.1), rgba(232,234,236,0.02)); }
+    .train .car.engine { width: 64px; background: linear-gradient(90deg, rgba(204,0,26,0.45), rgba(204,0,26,0.14)); }
+    .jet-squad { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+    .jet { position: absolute; width: clamp(120px, 13vw, 210px); animation: jetPatrol 17s linear infinite; }
+    .jet path, .jet polygon, .jet ellipse { fill: rgba(232,234,236,0.35); }
+    .jet.j1 { top: 22%; animation-delay: 0s; }
+    .jet.j2 { top: 34%; animation-duration: 20s; animation-delay: 6s; opacity: 0.8; }
+    .jet.j3 { top: 15%; animation-duration: 24s; animation-delay: 11s; opacity: 0.66; }
     .scene-jump { position: absolute; right: clamp(20px, 5vw, 56px); bottom: clamp(24px, 4vw, 54px); z-index: 4; display: inline-flex; align-items: center; gap: 10px; padding: 11px 22px; border: 1px solid rgba(232,234,236,0.32); background: rgba(5,8,13,0.72); color: var(--white); font-family: var(--fm); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: transform .2s, border-color .2s, background .2s; }
     .scene-jump:hover { transform: translateY(-2px); border-color: var(--red); background: rgba(14,20,28,0.95); }
     .scene-jump .arr { color: var(--red); font-size: 13px; }
@@ -197,7 +209,7 @@
     .frt { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--gray); letter-spacing: 1px; text-align: right; line-height: 2; }
 
     @media (max-width: 1024px) { .dgrid { grid-template-columns: repeat(3, 1fr); } .tiers { grid-template-columns: repeat(3, 1fr); } .officers { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px) { nav { padding: 14px 20px; } .nlinks { display: none; } .mgrid { grid-template-columns: 1fr; gap: 40px; } .idgrid { grid-template-columns: 1fr; gap: 32px; } .dgrid { grid-template-columns: repeat(2, 1fr); } .tiers { grid-template-columns: repeat(2, 1fr); } .officers { grid-template-columns: repeat(2, 1fr); } .rsub { display: none; } .srow { gap: 24px; } .hjet, .page-hud { display: none; } }
+    @media (max-width: 768px) { nav { padding: 14px 20px; } .nlinks { display: none; } .mgrid { grid-template-columns: 1fr; gap: 40px; } .idgrid { grid-template-columns: 1fr; gap: 32px; } .dgrid { grid-template-columns: repeat(2, 1fr); } .tiers { grid-template-columns: repeat(2, 1fr); } .officers { grid-template-columns: repeat(2, 1fr); } .rsub { display: none; } .srow { gap: 24px; } .hjet, .anime-char, .page-hud { display: none; } }
     @media (max-width: 480px) { .dgrid { grid-template-columns: 1fr; } .tiers { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -326,6 +338,23 @@
   </div>
 
 
+  <div class="anime-overlay" aria-hidden="true">
+    <div class="anime-char left"></div>
+    <div class="anime-char right"></div>
+  </div>
+
+  <div class="train-track" aria-hidden="true">
+    <div class="train">
+      <div class="car engine"></div><div class="car"></div><div class="car"></div><div class="car"></div><div class="car"></div><div class="car"></div>
+    </div>
+  </div>
+
+  <div class="jet-squad" aria-hidden="true">
+    <svg class="jet j1" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="122" cy="58" rx="10" ry="52"/><polygon points="122,30 42,72 122,62 202,72"/><polygon points="122,82 92,114 106,98"/><polygon points="122,82 152,114 138,98"/><polygon points="122,35 86,46 100,40"/><polygon points="122,35 158,46 144,40"/></svg>
+    <svg class="jet j2" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="122" cy="58" rx="10" ry="52"/><polygon points="122,30 42,72 122,62 202,72"/><polygon points="122,82 92,114 106,98"/><polygon points="122,82 152,114 138,98"/><polygon points="122,35 86,46 100,40"/><polygon points="122,35 158,46 144,40"/></svg>
+    <svg class="jet j3" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="122" cy="58" rx="10" ry="52"/><polygon points="122,30 42,72 122,62 202,72"/><polygon points="122,82 92,114 106,98"/><polygon points="122,82 152,114 138,98"/><polygon points="122,35 86,46 100,40"/><polygon points="122,35 158,46 144,40"/></svg>
+  </div>
+
   <div class="hcontent">
     <div class="heye">USF TAMPA &nbsp;//&nbsp; DEFENSE-PROJECT ORGANIZATION</div>
     <div class="htitle">ARM<span class="outline">S</span></div>
@@ -346,7 +375,7 @@
       <span class="tk">APPLIED RESEARCH IN MILITARY SYSTEMS</span><span class="tk">SENSING & ISR</span><span class="tk">COMMUNICATIONS RESILIENCE</span><span class="tk">AUTONOMOUS PLATFORMS</span><span class="tk">EMBEDDED SYSTEMS</span><span class="tk">POWER ARCHITECTURE</span><span class="tk">UNIVERSITY OF SOUTH FLORIDA</span><span class="tk">PROJECTS COME FIRST</span>
     </div>
   </div>
-  <a class="scene-jump" href="#mission" data-next="mission">Jump to Mission <span class="arr">➜</span></a>
+  <a class="scene-jump" href="#mission" data-next="mission">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <!-- MISSION -->
@@ -371,7 +400,7 @@
       </div>
     </div>
   </div>
-  <a class="scene-jump" href="#domains" data-next="domains">Jump to Domains <span class="arr">➜</span></a>
+  <a class="scene-jump" href="#domains" data-next="domains">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <div class="stripe">
@@ -460,7 +489,7 @@
       </div>
     </div>
   </div>
-  <a class="scene-jump" href="#doctrine" data-next="doctrine">Jump to Doctrine <span class="arr">➜</span></a>
+  <a class="scene-jump" href="#doctrine" data-next="doctrine">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <!-- DOCTRINE -->
@@ -478,7 +507,7 @@
       <div class="rule rev"><span class="rnum">07</span><span class="rtext">OPERATE WITHIN INSTITUTIONAL BOUNDS</span><span class="rsub">Safety, legality, and university policy are part of ARMS's identity — not obstacles.</span></div>
     </div>
   </div>
-  <a class="scene-jump" href="#identity" data-next="identity">Jump to Identity <span class="arr">➜</span></a>
+  <a class="scene-jump" href="#identity" data-next="identity">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <!-- BANNER -->
@@ -518,7 +547,7 @@
       </div>
     </div>
   </div>
-  <a class="scene-jump" href="#structure" data-next="structure">Jump to Structure <span class="arr">➜</span></a>
+  <a class="scene-jump" href="#structure" data-next="structure">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <div class="stripe">
@@ -551,7 +580,7 @@
       </div>
     </div>
   </div>
-  <a class="scene-jump" href="#recruit" data-next="recruit">Jump to Recruit <span class="arr">➜</span></a>
+  <a class="scene-jump" href="#recruit" data-next="recruit">Next Scene <span class="arr">➜</span></a>
 </section>
 
 <!-- RECRUIT -->
