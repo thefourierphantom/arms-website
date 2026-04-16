@@ -245,6 +245,47 @@
   <div class="corner cbltr"></div>
   <div class="corner cbrlt"></div>
 
+  <div class="hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0d1218"/>
+          <stop offset="55%" stop-color="#161d27"/>
+          <stop offset="100%" stop-color="#080c12"/>
+        </linearGradient>
+        <radialGradient id="burn" cx="73%" cy="52%" r="22%">
+          <stop offset="0%" stop-color="#ffdcb4" stop-opacity="0.95"/>
+          <stop offset="34%" stop-color="#ffaf66" stop-opacity="0.78"/>
+          <stop offset="100%" stop-color="#ff7d32" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="blur22"><feGaussianBlur stdDeviation="22"/></filter>
+      </defs>
+      <rect width="1600" height="900" fill="url(#nightSky)"/>
+      <g stroke="#8f98a6" stroke-opacity="0.22" stroke-width="1.4" fill="none">
+        <path d="M690 198h170l42 40h186"/><path d="M730 238h120l50 42h206"/><path d="M680 286h136l58 48h244"/><path d="M770 338h110l62 52h226"/><path d="M735 392h128l64 48h192"/><path d="M760 450h120l56 44h170"/>
+      </g>
+      <ellipse cx="710" cy="650" rx="580" ry="170" fill="#59606b" fill-opacity="0.18" filter="url(#blur22)"/>
+      <ellipse cx="1120" cy="706" rx="430" ry="138" fill="#6f757f" fill-opacity="0.16" filter="url(#blur22)"/>
+      <g transform="translate(220 420)">
+        <polygon points="0 148 410 118 476 152 410 204 24 216" fill="#343b45"/>
+        <polygon points="120 136 300 94 398 112 420 130 272 156" fill="#626a75"/>
+        <polygon points="-20 126 18 50 58 120" fill="#2f353f"/>
+        <polygon points="30 124 66 44 104 118" fill="#3b424e"/>
+        <polygon points="154 130 236 96 186 172" fill="#4a505a"/>
+        <ellipse cx="272" cy="122" rx="40" ry="20" fill="#0b1017"/>
+      </g>
+      <g transform="translate(1020 260) rotate(-30)">
+        <polygon points="0 0 190 26 0 52" fill="#676f7b"/>
+        <polygon points="160 12 238 22 160 40" fill="#59616d"/>
+        <rect x="40" y="20" width="34" height="16" fill="#474f5a"/>
+      </g>
+      <path d="M1045 400 C1130 462 1230 578 1410 756" stroke="#f3c28b" stroke-width="24" stroke-linecap="round" stroke-opacity="0.55" fill="none" filter="url(#blur22)"/>
+      <circle cx="1110" cy="453" r="180" fill="url(#burn)"/>
+    </svg>
+  </div>
+  <div class="hero-smoke" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+
   <div class="radar-wrap">
     <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -315,11 +356,11 @@
   </div>
 
   <div class="hcontent">
-    <div class="heye">USF TAMPA &nbsp;//&nbsp; STUDENT-LED DEFENSE SYSTEMS ORG</div>
+    <div class="heye">USF TAMPA &nbsp;//&nbsp; DEFENSE-PROJECT ORGANIZATION</div>
     <div class="htitle">ARM<span class="outline">S</span></div>
     <div class="hfull">Applied Research in Military Systems</div>
     <div class="hrule"></div>
-    <p class="htag">A defense-project organization that turns technically serious students into credible builders of military-relevant systems. Projects first. Always.</p>
+    <p class="htag">A student-led organization for applied research and project development in defense-relevant systems — built for serious, hands-on engineering in sensing, communications, autonomy, embedded systems, and resilient field platforms.</p>
     <div class="hctas">
       <a href="#mission" class="btn-red">ACCESS BRIEFING &nbsp;→</a>
       <a href="#recruit" class="btn-ghost">JOIN ARMS</a>
@@ -344,7 +385,7 @@
     <div class="slbl rev">01 // MISSION</div>
     <div class="mgrid">
       <div>
-        <div class="mhead rev d1">REAL<br>PROJECTS.<br>REAL<br><em>PROBLEMS.</em></div>
+        <div class="mhead rev d1">SCOPED<br>PROJECTS.<br>DISCIPLINED<br><em>EXECUTION.</em></div>
         <div class="srow">
           <div class="st rev d2"><div class="stn">01</div><div class="stl">Flagship project<br>per semester</div></div>
           <div class="st rev d3"><div class="stn">05</div><div class="stl">Technical<br>domains</div></div>
@@ -353,9 +394,9 @@
       </div>
       <div class="mbody">
         <div class="mtag rev">// OPERATIONAL BRIEF</div>
-        <p class="rev d1">ARMS is a student-led defense systems organization built around applied research, prototyping, testing, and documentation. Its purpose is to give technically serious students a place to work on real, defense-relevant engineering problems before industry, graduate research, or national security institutions give them that opportunity.</p>
-        <p class="rev d2">Students interested in defense, military systems, national security technology, autonomy, communications, sensing, and field-ready engineering often have no clear place to do serious applied work. Most student organizations are too broad, too social, or too unfocused to produce meaningful technical outcomes.</p>
-        <p class="rev d3"><strong style="color:var(--red)">ARMS exists to close that gap.</strong> We give technically serious students a structured environment to design, prototype, test, and document applied engineering work connected to real military-relevant problems. ARMS is built for students who want to become more capable in the kinds of systems work that matter in defense and national security environments.</p>
+        <p class="rev d1">ARMS is a student-led engineering organization focused on applied research and project development for defense-relevant systems. We build, test, and document technical work so members graduate with real systems output, not just event attendance.</p>
+        <p class="rev d2">ARMS solves a specific campus gap: most orgs are broad and event-heavy, while advanced labs are hard to access and rarely centered on student ownership. ARMS gives motivated students a disciplined, team-based place to do serious defense-aligned systems work.</p>
+        <p class="rev d3"><strong style="color:var(--red)">ARMS exists to close that gap.</strong> Each project is scoped for one semester with clear deliverables: problem framing, requirements, architecture, build log, test evidence, and a final report. That operating model is how ARMS protects quality, credibility, and mission discipline.</p>
       </div>
     </div>
   </div>
